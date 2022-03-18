@@ -10,7 +10,7 @@ using BackEnd.Models;
 
 namespace BackEnd.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TarjetaCreditoController : ControllerBase
     {
@@ -23,9 +23,10 @@ namespace BackEnd.Controllers
 
         // GET: api/TarjetaCredito
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TarjetaCredito>>> GetTarjetaCredito()
+        public async Task<ActionResult> GetTarjetaCredito()
         {
-            return await _context.TarjetaCredito.ToListAsync();
+            var a = await _context.TarjetaCredito.ToListAsync();
+            return Ok(a);
         }
 
         // GET: api/TarjetaCredito/5
